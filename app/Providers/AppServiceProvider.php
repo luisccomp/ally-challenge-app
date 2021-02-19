@@ -6,6 +6,7 @@ use App\Service\AllyIntegration;
 use App\Service\BCIntegration;
 use App\Service\Impl\AllyIntegrationImpl;
 use App\Service\Impl\BCIntegrationImpl;
+use App\Service\Impl\MockAllyIntegration;
 use App\Service\Impl\MockBCIntegrationImpl;
 use Illuminate\Support\ServiceProvider;
 
@@ -18,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(BCIntegration::class, MockBCIntegrationImpl::class);
+        $this->app->bind(BCIntegration::class, BCIntegrationImpl::class);
         $this->app->bind(AllyIntegration::class, AllyIntegrationImpl::class);
     }
 
